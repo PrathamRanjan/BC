@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Sparkles, Brain, School, ArrowLeft } from 'lucide-react';
+import { Sparkles, Brain, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import yodaImage from '../assets/yoda.webp';
 
@@ -62,31 +62,19 @@ const YodaPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ToolCard 
-              title="Misinformation Identification Training"
-              description="Interactive exercises to help you identify common patterns of misinformation. Train your eye to spot deceptive content across various media."
+              title="Truth Detective"
+              description="In this game, you'll navigate through a simulated social media feed and learn to identify misinformation. Examine posts carefully, decide if they contain misinformation, and use the 'Get a Tip' feature when you're unsure. You'll learn to identify clickbait, fake sources, and manipulated images."
               icon={<Brain className="w-6 h-6 text-green-600" />}
               buttonText="Start Training"
+              link="https://sentinel-v2-4l9w.vercel.app/"
             />
             
             <ToolCard 
-              title="Source Evaluation Game"
-              description="A fun, interactive game that teaches you how to evaluate the credibility of different information sources. Earn points as you master this critical skill."
+              title="Fact Checker Simulator"
+              description="Take on the role of a professional fact-checker and help combat misinformation. Research claims, verify sources, and publish accurate fact checks! Develop critical skills needed to evaluate information in today's complex media landscape."
               icon={<Sparkles className="w-6 h-6 text-green-600" />}
               buttonText="Play Game"
-            />
-            
-            <ToolCard 
-              title="Critical Thinking Curriculum"
-              description="A structured learning path designed to enhance your critical thinking skills. Complete lessons and earn certificates as you progress."
-              icon={<School className="w-6 h-6 text-green-600" />}
-              buttonText="Start Learning"
-            />
-            
-            <ToolCard 
-              title="Digital Literacy Resources"
-              description="Comprehensive guides and resources to improve your digital literacy skills. Learn to navigate the digital world safely and critically."
-              icon={<BookOpen className="w-6 h-6 text-green-600" />}
-              buttonText="Access Resources"
+              link="https://game2-pi-one.vercel.app/"
             />
           </div>
         </div>
@@ -127,7 +115,7 @@ const YodaPage = () => {
   );
 };
 
-const ToolCard = ({ title, description, icon, buttonText }) => {
+const ToolCard = ({ title, description, icon, buttonText, link }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 h-full hover:-translate-y-1 transition-transform duration-300">
       <div className="p-6">
@@ -138,9 +126,14 @@ const ToolCard = ({ title, description, icon, buttonText }) => {
           <h3 className="text-xl font-bold text-gray-800">{title}</h3>
         </div>
         <p className="text-gray-600 mb-6">{description}</p>
-        <button className="bg-gradient-to-r from-green-600 to-green-800 text-white font-medium py-2 px-4 rounded-md hover:from-green-700 hover:to-green-900 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full flex items-center justify-center gap-2">
+        <a 
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-gradient-to-r from-green-600 to-green-800 text-white font-medium py-2 px-4 rounded-md hover:from-green-700 hover:to-green-900 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full flex items-center justify-center gap-2"
+        >
           {buttonText}
-        </button>
+        </a>
       </div>
     </div>
   );
